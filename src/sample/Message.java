@@ -15,15 +15,14 @@ public class Message {
     public static String[] phrases5 = {"had a cannon fight with nearby pirates","had to rescue a sea serpent from ","received a gift for ","accidentally ran over a sea serpent and ","closer to the island by ", "should get there around ","realized I wanted to ","lost my "};
     public static String[] phrases6 = {"reached the island beaches","fought the king crab off with a ","started a campfire and sang ","found some fake treasure chests","drank some bad coconut milk","started missing my","forgot that I had a ","needed to find a ","couldn't find my "};
 
-    public Message(String[] rules, String[] qualifiers, String[] phrases, int wordcount)
+    public static int bottle;
+    public static String savedwords;
+
+
+    public Message(int bottle, String savedwords)
     {
-
-    }
-
-    public void setMessage()
-    {
-
-        int randomsetter = (int)Math.random()*rulescant.length;
+        this.bottle = bottle;
+        this.savedwords = savedwords;
     }
 
     public static String[] setRules(int rulenum, int bottle)
@@ -89,5 +88,10 @@ public class Message {
             setrules[i + 2] = phrases[phrasechoice[i]];
         }
         return setrules;
+    }
+
+    public String readStory()
+    {
+        return "Day " + bottle + "\n" + savedwords + "\n \n";
     }
 }

@@ -7,13 +7,23 @@ import javafx.stage.Stage;
 import javafx.scene.control.Label;
 import javafx.scene.Scene;
 
+import java.io.*;
+
 
 public class Controller {
     public static int[] openedbtles = {0,0,0,0,0,0,0};
+    public static int btlenum;
 
     public static void submitmsg(TextArea text, Stage stage, Scene scene) {
+        btlenum = 1;
         String usermessage = text.getText();
         //ifrulesaremet
+        //FileWriter fw = new FileWriter("writtenmessage.txt");
+        //BufferedWriter writer = new BufferedWriter(fw);
+        //writer.write(btlenum);
+        //writer.write(",");
+        //writer.write(usermessage);
+        btlenum++;
         stage.setScene(scene);
     }
 
