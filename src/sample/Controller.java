@@ -23,6 +23,15 @@ public class Controller {
         //writer.write(btlenum);
         //writer.write(",");
         //writer.write(usermessage);
+        try {
+            File file = new File("/sample/writtenmessage.txt");
+            FileWriter fw = new FileWriter(file);
+            BufferedWriter bw = new BufferedWriter(fw);
+        }
+        catch(IOException e)
+        {
+            System.out.println("error");
+        }
         btlenum++;
         stage.setScene(scene);
     }
