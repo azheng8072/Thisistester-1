@@ -8,6 +8,10 @@ import javafx.stage.Stage;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.Writer;
 import java.util.List;
 
 public class Main extends Application {
@@ -19,6 +23,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
         primaryStage.setTitle("Message In A Bottle");
         Label desc = new Label();
+
 //Scene 1
         Pane layout1 = new Pane();
         Label opening = new Label("Message In A Bottle");
@@ -123,7 +128,7 @@ public class Main extends Application {
         Pane layout3 = new Pane();
 
 
-        TextArea userbox = new TextArea("Start writing your message here!");
+        TextArea userbox = new TextArea("Start writing!");
         //Label criteria = new Label("Bottle Rules \n");
         userbox.setId("usebx");
         criteria.setId("crit");
@@ -171,7 +176,7 @@ public class Main extends Application {
     }
 
     private String readstory() {
-        List<Message> messages = CSVReader.readCSV("src/sample/writtenmessage.txt");
+        List<Message> messages = CSVReader.readCSV("src/writtenmsg.txt");
         String fullstory = "";
 
         for (Message m : messages) {

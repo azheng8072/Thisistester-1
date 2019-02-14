@@ -1,6 +1,5 @@
 package sample;
 
-import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
@@ -12,27 +11,26 @@ import java.io.*;
 
 public class Controller {
     public static int[] openedbtles = {0,0,0,0,0,0,0};
-    public static int btlenum;
+    public static int btlenum = 1;
+
 
     public static void submitmsg(TextArea text, Stage stage, Scene scene) {
-        btlenum = 1;
         String usermessage = text.getText();
+        System.out.println(usermessage);
         //ifrulesaremet
-        //FileWriter fw = new FileWriter("writtenmessage.txt");
-        //BufferedWriter writer = new BufferedWriter(fw);
-        //writer.write(btlenum);
-        //writer.write(",");
-        //writer.write(usermessage);
         try {
-            File file = new File("/sample/writtenmessage.txt");
-            FileWriter fw = new FileWriter(file);
-            BufferedWriter bw = new BufferedWriter(fw);
+            Writer output;
+            output = new BufferedWriter(new FileWriter("src/writtenmsg.txt",true));
+            output.append("" + btlenum);
+            output.append(",");
+            output.append(usermessage);
+
+            output.close();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        catch(IOException e)
-        {
-            System.out.println("error");
-        }
-        btlenum++;
+        btlenum = btlenum + 1;
+        System.out.println(btlenum);
         stage.setScene(scene);
     }
 

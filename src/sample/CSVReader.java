@@ -19,37 +19,29 @@ import java.util.List;
 public class CSVReader {
 
     public static void main(String... args) {
-        List<Message> messages = readCSV("src/sample/writtenmessage.txt");
+        List<Message> messages = readCSV("src/writtenmsg.txt");
 
         // let's print all the person read from CSV file
         for (Message m : messages) {
             System.out.println(m);
         }
-    }
+}
 
     public static List<Message> readCSV(String fileName) {
         List<Message> messages = new ArrayList<>();
         Path pathToFile = Paths.get(fileName);
 
-        // create an instance of BufferedReader
-        // using try with resource, Java 7 feature to close resources
         try (BufferedReader br = Files.newBufferedReader(pathToFile,
                 StandardCharsets.US_ASCII)) {
 
-            // read the first line from the text file
             String line = br.readLine();
 
-            // loop until all lines are read
             while (line != null) {
 
-                // use string.split to load a string array with the values from
-                // each line of
-                // the file, using a comma as the delimiter
                 String[] attributes = line.split(",");
 
                 Message message = makemessage(attributes);
 
-                // adding book into ArrayList
                 messages.add(message);
 
                 line = br.readLine();
