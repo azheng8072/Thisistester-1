@@ -17,6 +17,7 @@ public class Controller {
     public static void submitmsg(TextArea text, Stage stage, Scene scene) {
         String usermessage = text.getText();
         System.out.println(usermessage);
+
         //ifrulesaremet
         try {
             Writer output;

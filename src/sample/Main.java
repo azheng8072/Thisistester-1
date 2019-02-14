@@ -8,10 +8,7 @@ import javafx.stage.Stage;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.Writer;
+import java.io.*;
 import java.util.List;
 
 public class Main extends Application {
@@ -23,6 +20,13 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
         primaryStage.setTitle("Message In A Bottle");
         Label desc = new Label();
+        try {
+            PrintWriter writer = new PrintWriter("src/writtenmsg.txt");
+            writer.print("");
+            writer.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
 
 //Scene 1
         Pane layout1 = new Pane();
